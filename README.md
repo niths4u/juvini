@@ -79,7 +79,9 @@ num_num(df[['sepal_length','sepal_width','species']],hue_col='species')
 #### Method : `cat_cat(df[[cat_col1,cat_col2]])`
 #### Examples
 
-This will take the top 5 categories for each column and plot it. You can change this value 5 using parameters `xcap` and `ycap` as mentioned below
+This will take the top 5 categories for each column and plot it. You can change this value 5 using parameters `xcap` and `ycap` as mentioned below.
+For each value of X , it will give the countplot for values in Y. 
+Also the tool will take care of all subplots and figure size etc. User do not have to figure out the sizing and subplot grid size. 
 ```
 import pandas as pd
 from juvini import cat_cat
@@ -115,12 +117,167 @@ Yes , that also will work here. provide it like `cat_cat(df[['species','rating',
 4. xcap=5 , will cap the maximum categories with top 5 based on its count for x axis 1st column , default 5
 5. ycap=5 , same as xcap , but will be applicable to y column.
 6. hue_cols , to plot the hue. See the above example
+7. scols=3 , this is an experimental feature , use with caution. This parameter will control how many plots in one row. By default it is 3
+7. others=True , this is an experimental feature , use with caution. This parameter will put all the other values that are not coming in the top values provided into a category called 'restall'
 
 
-## Examples
-1. Create a user and group called `labuser` and assign a specific `uid` and `guid` , say 2100. The number 2100 is important because going further docker containers will also be using same uid and guid to ensure the files persisted are accessible from host and vice versa
-2. `groupadd -g 2100 labuser`
-3. `useradd -u 2100 -d /home/labuser -ms /bin/bash -g labuser -p “$(openssl passwd -1 labuser123)” labuser` Feel free to change the password from *labuser123* to any password.
+### CATEGORICAL vs NUMERICAL - to plot graph where two columns where x is category and y is numeric.
+#### Method : `cat_num(df[[cat_col1,num_col2]])`
+#### Examples
+
+This will take the top 5 categories of categorical column and plot numerical. You can change this value 5 using parameters `xcap` and `ycap` as mentioned below.
+For each value of X , it will give the boxplot corresponding to the numerical column in that. Additionally it will also give aggregate sum of the numerical values for each category.
+
+It is upto the user to decide which is useful. Boxplot is always useful , whereas the sum aggregate might help if you are looking at something like total votes etc. but if it is like sepal_width kind , then it may not be useful.Anyways no harm in giving both.
+
+```
+import pandas as pd
+from juvini import cat_num
+df=pd.read_csv('iris_with_rating.csv')
+cat_num(df[['species','petal_length']])
+```
+![categorical_numerical](/juvini/images/cat_num.png)
+
+
+Can we use a numerical column to plot a categorical column?
+Actually yes , if we know that it is categorical , we do not have to change the datatype and all unnecessary things. the code will take care of converting it to category as long as you provide the column as first column in the input
+
+Fine , but what if there are too many categories and i simply need to have a gist of top few categories?
+Yes that is also supported , simply provide the parameter `xcap=<value>` , the code will sort the categories based on its count and choose the top n values based on the input.
+
+
+How about the hue?
+Yes , that also will work here. provide it like `cat_num(df[['species','petal_length','rating']],hue_col='rating')`
+
+![categorical_numerical_with_hue](/juvini/images/cat_num_hue.png)
+
+#### additional parameters 
+1. x_name='xvalue' , the name that you want in x axis for the first column , sometimes the column name are different from the name you want to see in the graph.By default the first column name is taken
+2. y_name='yvalue' , same as x_name , but for Y axis
+3. size_figure=(13,4) , for playing around with the size. depending on size of the screen you may want to  change it. default is 13,4 with tight layout
+4. xcap=5 , will cap the maximum categories with top 5 based on its count for x axis 1st column , default 5
+6. hue_cols , to plot the hue. See the above example
+7. others=True , this is an experimental feature , use with caution. This parameter will put all the other values that are not coming in the top values provided into a category called 'restall'. There are ratings 0-3. If we cap it to only top 2. Then the rest of the ratings will go into "restall" value.
+
+`cat_num(df[['rating','petal_length']],xcap=2,others=True)`
+
+![categorical_numerical_with_hue](/juvini/images/cat_num_xcap_others.png)
+
+
+
+### Single NUMERICAL - to plot graph with just a numerical column
+#### Method : `single_num(df[[num_col1]])`
+#### Examples
+
+It is not always the case that plot will need two columns. What if i just need to see a boxplot of a numeric column or the distribution of a numeric column?
+For that we have the method which will give boxplot and distplot. It is usually used with the hue to give more insights
+
+```
+import pandas as pd
+from juvini import single_num
+df=pd.read_csv('iris_with_rating.csv')
+single_num(df[['sepal_length']])
+```
+![single_numerical](/juvini/images/single_num.png)
+
+How about the hue?
+Yes , that also will work here. provide it like `single_num(df[['sepal_length','species']],hue_col='species')`
+
+![single_numerical_with_hue](/juvini/images/single_num_hue.png)
+
+#### additional parameters 
+1. x_name='xvalue' , the name that you want in x axis for the first column , sometimes the column name are different from the name you want to see in the graph.By default the first column name is taken
+2. size_figure=(13,4) , for playing around with the size. depending on size of the screen you may want to  change it. default is 13,4 with tight layout
+3. hue_cols , to plot the hue. See the above example
+
+
+### Single CATEGORICAL - to plot graph with just a categorical column
+#### Method : `single_cat(df[[cat_col1]])`
+#### Examples
+
+It is not always the case that plot will need two columns. What if i just need to see a boxplot of a categorical column or the distribution of a numeric column?
+For that we have the method which will give boxplot and distplot. It is usually used with the hue to give more insights
+
+```
+import pandas as pd
+from juvini import single_cat
+df=pd.read_csv('iris_with_rating.csv')
+single_cat(df[['species']])
+```
+![single_categorical](/juvini/images/single_cat.png)
+
+
+Can we use a numerical column to plot a categorical column?
+Actually yes , if we know that it is categorical , we do not have to change the datatype and all unnecessary things. the code will take care of converting it to category as long as you provide the column as first column in the input
+
+Fine , but what if there are too many categories and i simply need to have a gist of top few categories?
+Yes that is also supported , simply provide the parameter `xcap=<value>` , the code will sort the categories based on its count and choose the top n values based on the input.
+
+
+How about the hue?
+Yes , that also will work here. provide it like `single_cat(df[['species','rating']],hue_col='rating')`
+
+![single_categorical_with_hue](/juvini/images/single_cat_hue.png)
+
+#### additional parameters 
+1. x_name='xvalue' , the name that you want in x axis for the first column , sometimes the column name are different from the name you want to see in the graph.By default the first column name is taken
+2. size_figure=(13,4) , for playing around with the size. depending on size of the screen you may want to  change it. default is 13,4 with tight layout
+3. hue_cols , to plot the hue. See the above example
+4. xcap=5 , will cap the maximum categories with top 5 based on its count for x axis 1st column , default 5
+
+## To make it more easier
+#### Method : `xy_autoplot(df[[col1,col2]])`
+#### Examples
+What if i do not even care what the data type is. I just want the code to decide it based on the data type already present.Can i do that?
+
+Yes. There is a method which does exactly this. You will have to simply give two columns. The first column will be taken as X variable and second as Y variable. And based on the data type it will provide you the necessary graph.
+
+```
+import pandas as pd
+from juvini import xy_auto_plot
+df=pd.read_csv('iris_with_rating.csv')
+xy_auto_plot(df[['sepal_length','rating']])
+```
+![xy_auto_plot](/juvini/images/xy_auto_plot.png)
+
+Does it support hue?
+Yes , you can use the same parameter `hue_col=<colname>` and if the graph can handle hue , then it will use it.
+![xy_auto_plot_hue](/juvini/images/xy_auto_plot_hue.png)
+
+So, what is the problem , why then go through all the above graphs if this will take care of all.
+
+Not exactly!! . The rating column is numeric. But it contains only categorical values. In such cases the code will not be able to identify and the plot may not look good. So it is always useful to have the breakdown of charts to more specific details. Apart from that , i do not see any issues in using autoplot as long as the very purpose of all this is to make life easier for data scientists.
+
+![xy_auto_plot_issue](/juvini/images/xy_auto_plot_issue.png)
+
+
+## Still better and most comfortable
+#### Method : `juvini_profile(df[[list_of_cols]])`
+#### Examples
+This is the highest of all that combines all below features and give the entire story in a matter of one command.
+```
+import pandas as pd
+from juvini import juvini_profile
+df=pd.read_csv('iris_with_rating.csv')
+xy_auto_plot(df,hue_col='species')
+```
+The output will contain 15 graphs 
+1. Analysis of numeric sepal_length and numeric sepal_length ![juvini_profile_plot1](/juvini/images/juvini_profile_1.png)
+2. Analysis of numeric sepal_length and numeric sepal_width
+3. Analysis of numeric sepal_length and numeric petal_length
+4. Analysis of numeric sepal_length and numeric petal_width
+5. Analysis of numeric sepal_length and numeric rating
+6. Analysis of numeric sepal_width and numeric sepal_width
+7. Analysis of numeric sepal_width and numeric petal_length
+8. Analysis of numeric sepal_width and numeric petal_width
+9. Analysis of numeric sepal_width and numeric rating
+10. Analysis of numeric petal_length and numeric petal_length
+11. Analysis of numeric petal_length and numeric petal_width
+12. Analysis of numeric petal_length and numeric rating
+13. Analysis of numeric petal_width and numeric petal_width
+14. Analysis of numeric petal_width and numeric rating
+15. Analysis of numeric rating and numeric rating
+
 
 ## Best Practices
 1. Create a user and group called `labuser` and assign a specific `uid` and `guid` , say 2100. The number 2100 is important because going further docker containers will also be using same uid and guid to ensure the files persisted are accessible from host and vice versa

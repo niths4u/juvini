@@ -143,9 +143,9 @@ def xy_auto_plot(df,**kwargs):
         if xtype=='cat':
             #print(sing_cols)
             #print(df[sing_cols])
-            single_cat(df[sing_cols])
+            single_cat(df[sing_cols],**kwargs)
         else:
-            single_num(df[sing_cols])
+            single_num(df[sing_cols],**kwargs)
         return True
             
     #print(df.columns)   
@@ -206,7 +206,7 @@ def single_num(df,**kwargs):
     hue_col = kwargs['hue_col'] if 'hue_col' in kwargs else None
     fig,axes=plt.subplots(1,2,figsize=size_figure,tight_layout=True)
     plt.subplot(1,2,1)
-    sns.boxplot(data=df,x=x_name,hue=hue_col)
+    sns.boxplot(data=df,y=x_name,x=hue_col)
     #if not hue_col==None:
     #    plt.legend(bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0.)
     plt.xticks(rotation=90)
