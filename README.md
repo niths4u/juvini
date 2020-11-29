@@ -9,7 +9,7 @@
 
 ## Introduction
 
-Plotting graphs are one of the most important aspects of EDA. Graphs give intuitive insights based because it is processed by our natural neural networks trained and evolved non stop for years. This tool is designed to allow data science users work on plotting the graphs rather than spending time on codes and analysing different methods of each plotting library. This tool has several levels. Highest level is where the user just have to input the entire data frame and the code will take care of giving all plots based on the data type for all combinations. Just like the way pairplot works for numerical datatypes.
+Plotting graphs are one of the most important aspects of EDA. Graphs give intuitive insights because it is processed by our natural neural networks trained and evolved non stop for years. This tool is designed to allow data science users to work on plotting the graphs rather than spending time on codes to do it. This tool has several levels. Highest level is where the user just have to input the entire data frame and the code will take care of giving all plots based on the data type for all combinations. Just like the way pairplot works for numerical datatypes.
 
 
 ## Requirement
@@ -57,14 +57,16 @@ from juvini import num_num
 df=pd.read_csv('iris_with_rating.csv')
 num_num(df[['sepal_length','sepal_width']])
 ```
-![numeric_numeric](/juvini/images/num_num.png)
 
-wait what if i do want to add a hue parameter to it?
+
+![numeric_numeric](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/num_num.png)
+
+wait what if i want to add a hue parameter to it?
 Just make sure to add the additional column `species` to the input dataframe and also add the parameter `hue_col='species'`
 ```
 num_num(df[['sepal_length','sepal_width','species']],hue_col='species')
 ```
-![numeric_numeric](/juvini/images/num_num_hue.png)
+![numeric_numeric](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/num_num_hue.png)
 
 #### additional parameters 
 1. x_name='xvalue' , the name that you want in x axis for the first column , sometimes the column name are different from the name you want to see in the graph.By default the first column name is taken
@@ -86,11 +88,11 @@ from juvini import cat_cat
 df=pd.read_csv('iris_with_rating.csv')
 cat_cat(df[['species','rating']])
 ```
-![categorical_categorical](/juvini/images/cat_cat.png)
+![categorical_categorical](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/cat_cat.png)
 
 similarly interchanging first and second column will change the axis
 `cat_cat(df[['rating','species']])`
-![categorical_categorical_xy_changed](/juvini/images/cat_cat_interchange.png)
+![categorical_categorical_xy_changed](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/cat_cat_interchange.png)
 
 But wait , did we just use a numerical column to plot a categorical column?
 Actually yes , if we know that it is categorical , we do not have to change the datatype and all unnecessary things. the code will take care of converting it to category.
@@ -100,7 +102,7 @@ Yes that is also supported , simply provide the parameter `xcap=<value>` , the c
 
 `cat_cat(df[['species','rating']],xcap=2)`
 
-![categorical_categorical_with_xcap](/juvini/images/cat_cat_xcap.png)
+![categorical_categorical_with_xcap](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/cat_cat_xcap.png)
 
 Fine , what if i want to change not the xcap but the ycap?
 Yes we can do that as well. Simply change the parameter `ycap=<value>` just like the xcap.
@@ -134,7 +136,7 @@ from juvini import cat_num
 df=pd.read_csv('iris_with_rating.csv')
 cat_num(df[['species','petal_length']])
 ```
-![categorical_numerical](/juvini/images/cat_num.png)
+![categorical_numerical](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/cat_num.png)
 
 
 Can we use a numerical column to plot a categorical column?
@@ -147,7 +149,7 @@ Yes that is also supported , simply provide the parameter `xcap=<value>` , the c
 How about the hue?
 Yes , that also will work here. provide it like `cat_num(df[['species','petal_length','rating']],hue_col='rating')`
 
-![categorical_numerical_with_hue](/juvini/images/cat_num_hue.png)
+![categorical_numerical_with_hue](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/cat_num_hue.png)
 
 #### additional parameters 
 1. x_name='xvalue' , the name that you want in x axis for the first column , sometimes the column name are different from the name you want to see in the graph.By default the first column name is taken
@@ -159,7 +161,7 @@ Yes , that also will work here. provide it like `cat_num(df[['species','petal_le
 
 `cat_num(df[['rating','petal_length']],xcap=2,others=True)`
 
-![categorical_numerical_with_hue](/juvini/images/cat_num_xcap_others.png)
+![categorical_numerical_with_hue](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/cat_num_xcap_others.png)
 
 
 
@@ -176,12 +178,12 @@ from juvini import single_num
 df=pd.read_csv('iris_with_rating.csv')
 single_num(df[['sepal_length']])
 ```
-![single_numerical](/juvini/images/single_num.png)
+![single_numerical](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/single_num.png)
 
 How about the hue?
 Yes , that also will work here. provide it like `single_num(df[['sepal_length','species']],hue_col='species')`
 
-![single_numerical_with_hue](/juvini/images/single_num_hue.png)
+![single_numerical_with_hue](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/single_num_hue.png)
 
 #### additional parameters 
 1. x_name='xvalue' , the name that you want in x axis for the first column , sometimes the column name are different from the name you want to see in the graph.By default the first column name is taken
@@ -202,7 +204,7 @@ from juvini import single_cat
 df=pd.read_csv('iris_with_rating.csv')
 single_cat(df[['species']])
 ```
-![single_categorical](/juvini/images/single_cat.png)
+![single_categorical](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/single_cat.png)
 
 
 Can we use a numerical column to plot a categorical column?
@@ -215,7 +217,7 @@ Yes that is also supported , simply provide the parameter `xcap=<value>` , the c
 How about the hue?
 Yes , that also will work here. provide it like `single_cat(df[['species','rating']],hue_col='rating')`
 
-![single_categorical_with_hue](/juvini/images/single_cat_hue.png)
+![single_categorical_with_hue](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/single_cat_hue.png)
 
 #### additional parameters 
 1. x_name='xvalue' , the name that you want in x axis for the first column , sometimes the column name are different from the name you want to see in the graph.By default the first column name is taken
@@ -236,17 +238,17 @@ from juvini import xy_auto_plot
 df=pd.read_csv('iris_with_rating.csv')
 xy_auto_plot(df[['sepal_length','rating']])
 ```
-![xy_auto_plot](/juvini/images/xy_auto_plot.png)
+![xy_auto_plot](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/xy_auto_plot.png)
 
 Does it support hue?
 Yes , you can use the same parameter `hue_col=<colname>` and if the graph can handle hue , then it will use it.
-![xy_auto_plot_hue](/juvini/images/xy_auto_plot_hue.png)
+![xy_auto_plot_hue](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/xy_auto_plot_hue.png)
 
 So, what is the problem , why then go through all the above graphs if this will take care of all.
 
 Not exactly!! . The rating column is numeric. But it contains only categorical values. In such cases the code will not be able to identify and the plot may not look good. So it is always useful to have the breakdown of charts to more specific details. Apart from that , i do not see any issues in using autoplot as long as the very purpose of all this is to make life easier for data scientists.
 
-![xy_auto_plot_issue](/juvini/images/xy_auto_plot_issue.png)
+![xy_auto_plot_issue](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/xy_auto_plot_issue.png)
 
 
 ## Still better and most comfortable
@@ -260,21 +262,21 @@ df=pd.read_csv('iris_with_rating.csv')
 xy_auto_plot(df,hue_col='species')
 ```
 The output will contain 15 graphs 
-1. Analysis of numeric sepal_length and numeric sepal_length ![juvini_profile_plot1](/juvini/images/juvini_profile_1.png)
-2. Analysis of numeric sepal_length and numeric sepal_width ![juvini_profile_plot2](/juvini/images/juvini_profile_2.png)
-3. Analysis of numeric sepal_length and numeric petal_length ![juvini_profile_plot3](/juvini/images/juvini_profile_3.png)
-4. Analysis of numeric sepal_length and numeric petal_width ![juvini_profile_plot4](/juvini/images/juvini_profile_4.png)
-5. Analysis of numeric sepal_length and numeric rating ![juvini_profile_plot5](/juvini/images/juvini_profile_5.png)
-6. Analysis of numeric sepal_width and numeric sepal_width ![juvini_profile_plot6](/juvini/images/juvini_profile_6.png)
-7. Analysis of numeric sepal_width and numeric petal_length ![juvini_profile_plot7](/juvini/images/juvini_profile_7.png)
-8. Analysis of numeric sepal_width and numeric petal_width ![juvini_profile_plot8](/juvini/images/juvini_profile_8.png)
-9. Analysis of numeric sepal_width and numeric rating ![juvini_profile_plot9](/juvini/images/juvini_profile_9.png)
-10. Analysis of numeric petal_length and numeric petal_length ![juvini_profile_plot10](/juvini/images/juvini_profile_10.png)
-11. Analysis of numeric petal_length and numeric petal_width ![juvini_profile_plot11](/juvini/images/juvini_profile_11.png)
-12. Analysis of numeric petal_length and numeric rating ![juvini_profile_plot12](/juvini/images/juvini_profile_12.png)
-13. Analysis of numeric petal_width and numeric petal_width ![juvini_profile_plot13](/juvini/images/juvini_profile_13.png)
-14. Analysis of numeric petal_width and numeric rating ![juvini_profile_plot14](/juvini/images/juvini_profile_14.png)
-15. Analysis of numeric rating and numeric rating ![juvini_profile_plot15](/juvini/images/juvini_profile_15.png)
+1. Analysis of numeric sepal_length and numeric sepal_length ![juvini_profile_plot1](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/juvini_profile_1.png)
+2. Analysis of numeric sepal_length and numeric sepal_width ![juvini_profile_plot2](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/juvini_profile_2.png)
+3. Analysis of numeric sepal_length and numeric petal_length ![juvini_profile_plot3](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/juvini_profile_3.png)
+4. Analysis of numeric sepal_length and numeric petal_width ![juvini_profile_plot4](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/juvini_profile_4.png)
+5. Analysis of numeric sepal_length and numeric rating ![juvini_profile_plot5](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/juvini_profile_5.png)
+6. Analysis of numeric sepal_width and numeric sepal_width ![juvini_profile_plot6](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/juvini_profile_6.png)
+7. Analysis of numeric sepal_width and numeric petal_length ![juvini_profile_plot7](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/juvini_profile_7.png)
+8. Analysis of numeric sepal_width and numeric petal_width ![juvini_profile_plot8](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/juvini_profile_8.png)
+9. Analysis of numeric sepal_width and numeric rating ![juvini_profile_plot9](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/juvini_profile_9.png)
+10. Analysis of numeric petal_length and numeric petal_length ![juvini_profile_plot10](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/juvini_profile_10.png)
+11. Analysis of numeric petal_length and numeric petal_width ![juvini_profile_plot11](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/juvini_profile_11.png)
+12. Analysis of numeric petal_length and numeric rating ![juvini_profile_plot12](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/juvini_profile_12.png)
+13. Analysis of numeric petal_width and numeric petal_width ![juvini_profile_plot13](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/juvini_profile_13.png)
+14. Analysis of numeric petal_width and numeric rating ![juvini_profile_plot14](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/juvini_profile_14.png)
+15. Analysis of numeric rating and numeric rating ![juvini_profile_plot15](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/juvini_profile_15.png)
 
 
 ## Best Practices

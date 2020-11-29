@@ -6,8 +6,8 @@ with open("README.md", "r") as fh:
 
 	
 setuptools.setup(
-    name="niths_juvini", # Replace with your own username
-    version="0.0.3",
+    name="juvini", # Replace with your own username
+    version="1.0.4",
     author="Niths",
     author_email="nitinmn@gmail.com",
     description="EDA for dummies",
@@ -20,7 +20,7 @@ setuptools.setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-	install_requires=['pandas','itertools','matplotlib','seaborn','warnings'],
+	install_requires=['pandas','matplotlib','seaborn'],
     python_requires='>=3.6',
 	include_package_data=True
 )
