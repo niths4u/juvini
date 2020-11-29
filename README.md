@@ -259,7 +259,7 @@ This is the highest of all that combines all below features and give the entire 
 import pandas as pd
 from juvini import juvini_profile
 df=pd.read_csv('iris_with_rating.csv')
-xy_auto_plot(df,hue_col='species')
+juvini_profile(df,hue_col='species')
 ```
 The output will contain 15 graphs 
 1. Analysis of numeric sepal_length and numeric sepal_length ![juvini_profile_plot1](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/juvini_profile_1.png)
