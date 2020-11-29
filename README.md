@@ -4,9 +4,7 @@
 
 - **[Introduction](#introduction)** 
 - **[Requirement](#requirement)**
-- **[Assumption](#assumption)**
 - **[Usage](#usage)**
-- **[Examples](#examples)**
 - **[Best Practices](#best-practices)**
 
 ## Introduction
@@ -263,23 +261,26 @@ xy_auto_plot(df,hue_col='species')
 ```
 The output will contain 15 graphs 
 1. Analysis of numeric sepal_length and numeric sepal_length ![juvini_profile_plot1](/juvini/images/juvini_profile_1.png)
-2. Analysis of numeric sepal_length and numeric sepal_width
-3. Analysis of numeric sepal_length and numeric petal_length
-4. Analysis of numeric sepal_length and numeric petal_width
-5. Analysis of numeric sepal_length and numeric rating
-6. Analysis of numeric sepal_width and numeric sepal_width
-7. Analysis of numeric sepal_width and numeric petal_length
-8. Analysis of numeric sepal_width and numeric petal_width
-9. Analysis of numeric sepal_width and numeric rating
-10. Analysis of numeric petal_length and numeric petal_length
-11. Analysis of numeric petal_length and numeric petal_width
-12. Analysis of numeric petal_length and numeric rating
-13. Analysis of numeric petal_width and numeric petal_width
-14. Analysis of numeric petal_width and numeric rating
-15. Analysis of numeric rating and numeric rating
+2. Analysis of numeric sepal_length and numeric sepal_width ![juvini_profile_plot2](/juvini/images/juvini_profile_2.png)
+3. Analysis of numeric sepal_length and numeric petal_length ![juvini_profile_plot3](/juvini/images/juvini_profile_3.png)
+4. Analysis of numeric sepal_length and numeric petal_width ![juvini_profile_plot4](/juvini/images/juvini_profile_4.png)
+5. Analysis of numeric sepal_length and numeric rating ![juvini_profile_plot5](/juvini/images/juvini_profile_5.png)
+6. Analysis of numeric sepal_width and numeric sepal_width ![juvini_profile_plot6](/juvini/images/juvini_profile_6.png)
+7. Analysis of numeric sepal_width and numeric petal_length ![juvini_profile_plot7](/juvini/images/juvini_profile_7.png)
+8. Analysis of numeric sepal_width and numeric petal_width ![juvini_profile_plot8](/juvini/images/juvini_profile_8.png)
+9. Analysis of numeric sepal_width and numeric rating ![juvini_profile_plot9](/juvini/images/juvini_profile_9.png)
+10. Analysis of numeric petal_length and numeric petal_length ![juvini_profile_plot10](/juvini/images/juvini_profile_10.png)
+11. Analysis of numeric petal_length and numeric petal_width ![juvini_profile_plot11](/juvini/images/juvini_profile_11.png)
+12. Analysis of numeric petal_length and numeric rating ![juvini_profile_plot12](/juvini/images/juvini_profile_12.png)
+13. Analysis of numeric petal_width and numeric petal_width ![juvini_profile_plot13](/juvini/images/juvini_profile_13.png)
+14. Analysis of numeric petal_width and numeric rating ![juvini_profile_plot14](/juvini/images/juvini_profile_14.png)
+15. Analysis of numeric rating and numeric rating ![juvini_profile_plot15](/juvini/images/juvini_profile_15.png)
 
 
 ## Best Practices
-1. Create a user and group called `labuser` and assign a specific `uid` and `guid` , say 2100. The number 2100 is important because going further docker containers will also be using same uid and guid to ensure the files persisted are accessible from host and vice versa
-2. `groupadd -g 2100 labuser`
-3. `useradd -u 2100 -d /home/labuser -ms /bin/bash -g labuser -p “$(openssl passwd -1 labuser123)” labuser` Feel free to change the password from *labuser123* to any password.
+1. When giving the input into the tool , it is always advisable to skip the column like the ID kind of columns where there is going to be a large number of categorical data
+2. If you can ensure all data types are properly mapped , then you can make the best use of this tool
+
+
+## Final Notes
+1. Feel free to comment or ask for any improvements. The motive behind this is to make the life of data scientist easier, we should concentrate of task more than coding.
