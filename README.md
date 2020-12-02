@@ -1,6 +1,8 @@
 # JUVINI
-## A Comprehensive tool for EDA
+## A Comprehensive graphing tool for EDA. Like a profiler using Graphs.
 
+To install the package : 
+`pip install juvini`
 
 - **[Introduction](#introduction)** 
 - **[Requirement](#requirement)**
