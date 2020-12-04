@@ -60,7 +60,7 @@ num_num(df[['sepal_length','sepal_width']])
 ```
 
 
-![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/imagesoutput_7_0.png)
+![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_7_0.png)
 
 
 
@@ -79,7 +79,7 @@ num_num(df[['sepal_length','sepal_width','species']],hue_col='species')
 ```
 
 
-![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/imagesoutput_9_0.png)
+![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_9_0.png)
 
 
 
@@ -114,7 +114,7 @@ cat_cat(df[['species','rating']])
 ```
 
 
-![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/imagesoutput_13_0.png)
+![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_13_0.png)
 
 
 
@@ -133,7 +133,7 @@ cat_cat(df[['rating','species']])
 ```
 
 
-![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/imagesoutput_15_0.png)
+![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_15_0.png)
 
 
 
@@ -177,7 +177,7 @@ cat_num(df[['species','petal_length']])
 ```
 
 
-![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/imagesoutput_20_0.png)
+![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_20_0.png)
 
 
 
@@ -203,7 +203,7 @@ cat_num(df[['species','petal_length','rating']],hue_col='rating')
 ```
 
 
-![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/imagesoutput_22_0.png)
+![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_22_0.png)
 
 
 
@@ -227,7 +227,7 @@ cat_num(df[['rating','petal_length']],xcap=2,others=True)
 ```
 
 
-![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/imagesoutput_24_0.png)
+![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_24_0.png)
 
 
 
@@ -254,7 +254,7 @@ single_num(df[['sepal_length']])
 ```
 
 
-![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/imagesoutput_27_0.png)
+![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_27_0.png)
 
 
 
@@ -273,7 +273,7 @@ single_num(df[['sepal_length','species']],hue_col='species')
 ```
 
 
-![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/imagesoutput_29_0.png)
+![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_29_0.png)
 
 
 
@@ -304,7 +304,7 @@ single_cat(df[['species']])
 ```
 
 
-![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/imagesoutput_33_0.png)
+![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_33_0.png)
 
 
 
@@ -326,7 +326,7 @@ single_cat(df[['species']],xcap=2)
 ```
 
 
-![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/imagesoutput_36_0.png)
+![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_36_0.png)
 
 
 
@@ -348,7 +348,7 @@ single_cat(df[['species','rating']],hue_col='rating')
 ```
 
 
-![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/imagesoutput_38_0.png)
+![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_38_0.png)
 
 
 
@@ -381,7 +381,7 @@ xy_auto_plot(df[['sepal_length','species']])
 ```
 
 
-![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/imagesoutput_41_0.png)
+![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_41_0.png)
 
 
 
@@ -403,7 +403,7 @@ xy_auto_plot(df[['sepal_length','species']],hue='rating')
 ```
 
 
-![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/imagesoutput_43_0.png)
+![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_43_0.png)
 
 
 
@@ -427,7 +427,7 @@ xy_auto_plot(df[['rating','sepal_length']])
 ```
 
 
-![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/imagesoutput_45_0.png)
+![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_45_0.png)
 
 
 
@@ -445,7 +445,7 @@ cat_num(df[['rating','sepal_length']])
 ```
 
 
-![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/imagesoutput_47_0.png)
+![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_47_0.png)
 
 
 
@@ -474,105 +474,105 @@ juvini_profile(df,hue_col='species')
     
 
 
-![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/imagesoutput_49_1.png)
+![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_49_1.png)
 
 
     Analysis of numeric sepal_length and numeric sepal_width
     
 
 
-![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/imagesoutput_49_3.png)
+![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_49_3.png)
 
 
     Analysis of numeric sepal_length and numeric petal_length
     
 
 
-![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/imagesoutput_49_5.png)
+![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_49_5.png)
 
 
     Analysis of numeric sepal_length and numeric petal_width
     
 
 
-![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/imagesoutput_49_7.png)
+![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_49_7.png)
 
 
     Analysis of numeric sepal_length and numeric rating
     
 
 
-![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/imagesoutput_49_9.png)
+![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_49_9.png)
 
 
     Analysis of numeric sepal_width and numeric sepal_width
     
 
 
-![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/imagesoutput_49_11.png)
+![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_49_11.png)
 
 
     Analysis of numeric sepal_width and numeric petal_length
     
 
 
-![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/imagesoutput_49_13.png)
+![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_49_13.png)
 
 
     Analysis of numeric sepal_width and numeric petal_width
     
 
 
-![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/imagesoutput_49_15.png)
+![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_49_15.png)
 
 
     Analysis of numeric sepal_width and numeric rating
     
 
 
-![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/imagesoutput_49_17.png)
+![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_49_17.png)
 
 
     Analysis of numeric petal_length and numeric petal_length
     
 
 
-![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/imagesoutput_49_19.png)
+![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_49_19.png)
 
 
     Analysis of numeric petal_length and numeric petal_width
     
 
 
-![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/imagesoutput_49_21.png)
+![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_49_21.png)
 
 
     Analysis of numeric petal_length and numeric rating
     
 
 
-![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/imagesoutput_49_23.png)
+![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_49_23.png)
 
 
     Analysis of numeric petal_width and numeric petal_width
     
 
 
-![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/imagesoutput_49_25.png)
+![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_49_25.png)
 
 
     Analysis of numeric petal_width and numeric rating
     
 
 
-![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/imagesoutput_49_27.png)
+![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_49_27.png)
 
 
     Analysis of numeric rating and numeric rating
     
 
 
-![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/imagesoutput_49_29.png)
+![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_49_29.png)
 
 
 
@@ -596,25 +596,25 @@ for col in df.columns:
 ```
 
 
-![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/imagesoutput_51_0.png)
+![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_51_0.png)
 
 
 
-![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/imagesoutput_51_1.png)
+![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_51_1.png)
 
 
 
-![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/imagesoutput_51_2.png)
+![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_51_2.png)
 
 
 
-![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/imagesoutput_51_3.png)
+![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_51_3.png)
 
 
 
-![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/imagesoutput_51_4.png)
+![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_51_4.png)
 
 
 
-![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/imagesoutput_51_5.png)
+![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_51_5.png)
 
