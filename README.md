@@ -17,7 +17,7 @@ Plotting graphs are one of the most important aspects of EDA. Graphs give intuit
 
 1. User should have some idea on python. This can be run from jupyter as well as python console
 2. Should have good understanding of different graph types especially boxplot , scatterplot , barplot , countplot and distplot
-3. This is not a must , but if the user has a clear understanding of the datatype associated with each column , then converting to the datatype will make the graph look better. For eg , if a column contains categorical value 1,2,3,4. Then it is better to convert it as object or category so that the tool will be able to guess it. Else it will assume the datatype as numeric and will plot for numeric related graphs
+3. This is not a must , but if the user has a clear understanding of the datatype associated with each column , then converting to the datatype will make the graph look better. For eg , if a column contains categorical value 1,2,3,4. Then it is better to convert it as object or category so that the tool will be able to guess it. Else it will assume the datatype as numeric and will plot for numeric related graphs.Note that there is feature within the juvini that will automatically consider a numeric column as category if the unique values in it are less than 5
 4. The tool will always treat first column as X axis , second input column as Y axis and if parameter `hue_col` is specified then it will search for this column on rest of the dataframe. 
 
 ## Usage
@@ -391,11 +391,8 @@ xy_auto_plot(df[['sepal_length','species']])
 
 
 
-
-```python
 Does it support hue?
 Yes , you can use the same parameter `hue_col=<colname>` and if the graph can handle hue , then it will use it.
-```
 
 
 ```python
@@ -415,37 +412,11 @@ xy_auto_plot(df[['sepal_length','species']],hue='rating')
 
 
 ```python
-So, what is the problem , why then go through all the above graphs if this will take care of all.
-
-Not exactly!! . The rating column is numeric. But it contains only categorical values. In such cases the code will not be able to identify and the plot may not look good. So it is always useful to have the breakdown of charts to more specific details. Apart from that , i do not see any issues in using autoplot as long as the very purpose of all this is to make life easier for data scientists.
-
-```
-
-
-```python
-xy_auto_plot(df[['rating','sepal_length']])
-```
-
-
-![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_45_0.png)
-
-
-
-
-
-    True
-
-
-
-compare it with the `num_cat()` if we force rating as categorical. You see the difference? 
-
-
-```python
 cat_num(df[['rating','sepal_length']])
 ```
 
 
-![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_47_0.png)
+![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_44_0.png)
 
 
 
@@ -474,105 +445,105 @@ juvini_profile(df,hue_col='species')
     
 
 
-![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_49_1.png)
+![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_46_1.png)
 
 
     Analysis of numeric sepal_length and numeric sepal_width
     
 
 
-![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_49_3.png)
+![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_46_3.png)
 
 
     Analysis of numeric sepal_length and numeric petal_length
     
 
 
-![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_49_5.png)
+![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_46_5.png)
 
 
     Analysis of numeric sepal_length and numeric petal_width
     
 
 
-![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_49_7.png)
+![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_46_7.png)
 
 
     Analysis of numeric sepal_length and numeric rating
     
 
 
-![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_49_9.png)
+![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_46_9.png)
 
 
     Analysis of numeric sepal_width and numeric sepal_width
     
 
 
-![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_49_11.png)
+![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_46_11.png)
 
 
     Analysis of numeric sepal_width and numeric petal_length
     
 
 
-![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_49_13.png)
+![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_46_13.png)
 
 
     Analysis of numeric sepal_width and numeric petal_width
     
 
 
-![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_49_15.png)
+![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_46_15.png)
 
 
     Analysis of numeric sepal_width and numeric rating
     
 
 
-![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_49_17.png)
+![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_46_17.png)
 
 
     Analysis of numeric petal_length and numeric petal_length
     
 
 
-![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_49_19.png)
+![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_46_19.png)
 
 
     Analysis of numeric petal_length and numeric petal_width
     
 
 
-![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_49_21.png)
+![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_46_21.png)
 
 
     Analysis of numeric petal_length and numeric rating
     
 
 
-![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_49_23.png)
+![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_46_23.png)
 
 
     Analysis of numeric petal_width and numeric petal_width
     
 
 
-![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_49_25.png)
+![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_46_25.png)
 
 
     Analysis of numeric petal_width and numeric rating
     
 
 
-![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_49_27.png)
+![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_46_27.png)
 
 
     Analysis of numeric rating and numeric rating
     
 
 
-![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_49_29.png)
+![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_46_29.png)
 
 
 
@@ -582,39 +553,34 @@ juvini_profile(df,hue_col='species')
 
 
 
-#### An easier way to get the only related graphs to the dependent variable
-In many cases we may not need all sorts of graph but rather interested in seeing the graph related to the target variable, to do that simpy 
-run a loop using xy_auto_graph with dependent and independent variable
+#### An easier way to get the only related graphs to the dependent variable 
+In many cases we may not need all sorts of graph but rather interested in seeing the graph related to the target variable, to do use the feature 
+`juvini_against_target(df[col_list],target_col=<target_variable>)`
 
 
 ```python
 import pandas as pd
 from juvini import juvini_profile
 df=pd.read_csv('iris_with_rating.csv')
-for col in df.columns:
-    xy_auto_plot(df[[col,'species']])
+juvini_against_target(df,target_col='species')
 ```
 
 
-![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_51_0.png)
+![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_48_0.png)
 
 
 
-![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_51_1.png)
+![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_48_1.png)
 
 
 
-![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_51_2.png)
+![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_48_2.png)
 
 
 
-![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_51_3.png)
+![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_48_3.png)
 
 
 
-![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_51_4.png)
-
-
-
-![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_51_5.png)
+![png](https://raw.githubusercontent.com/niths4u/juvini/main/juvini/images/output_48_4.png)
 

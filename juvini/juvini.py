@@ -12,6 +12,29 @@ import seaborn as sns
 import warnings
 warnings.filterwarnings("ignore")
 
+def juvini_against_target(df,**kwargs):
+    '''
+    This code takes the entire dataframe columns and plot it against the target column specified as 'target_col' 
+    1) df
+    2) size_figure=(13,4) , can specify the size of the plot
+    3) cap=5 , this parameter allows you to limit the number of categorical columns that are part of output
+    4) hue_col , can provide a column name for hue , this will plot all graphs based on this column
+    5) target_col = colname , note that if the unique values in target column is less than 5 for numeric datatype than it will consider it as unique
+    '''
+    kwargs['xcap']=kwargs['cap'] if 'cap' in kwargs else 5
+    kwargs['ycap']=kwargs['cap'] if 'cap' in kwargs else 5
+    hue_col = kwargs['hue_col'] if 'hue_col' in kwargs else None
+    target_col = kwargs['target_col'] if 'target_col' in kwargs else None
+    if target_col == None:
+        raise ValueError("Target Column is not specified please provide variable <target_col>")
+    if hue_col==target_col:
+        hue_col == None
+    x_list = [ x for x in df.columns if x not in [target_col,hue_col]]
+    for xcol in x_list:
+        if hue_col==None:
+            xy_auto_plot(df[[xcol,target_col]],**kwargs)
+        else:
+            xy_auto_plot(df[[xcol,target_col,hue_col]],**kwargs)  
 
 # In[49]:
 
@@ -73,7 +96,11 @@ def find_type(df,colname):
     if colname in df.select_dtypes(['category','object','bool']):
         xtype='cat'
     elif colname in df.select_dtypes(['number']):
-        xtype='num'
+        num_uniq_size = df[colname].unique().size
+        if num_uniq_size < 5 :
+            xtype='cat'
+        else:
+            xtype='num'
     elif colname in df.select_dtypes(['datetime','datetimetz']):
         xtype='cat' ##consider date as category
     elif colname in df.columns:
@@ -130,7 +157,7 @@ def xy_auto_plot(df,**kwargs):
     #scols=kwargs['scols'] if 'scols' in kwargs else 3 ##used in get_rows_cols
     hue_col = kwargs['hue_col'] if 'hue_col' in kwargs else None
     if x_name==y_name:
-        xtype=find_type(df,x_name)
+        
         if not hue_col==None:
             sing_cols=[x_name,hue_col]
             if hue_col==x_name:
@@ -140,6 +167,7 @@ def xy_auto_plot(df,**kwargs):
         else:
             sing_cols=[x_name]
             df.columns=[x_name,x_name+'_2']
+        xtype=find_type(df,x_name)
         if xtype=='cat':
             #print(sing_cols)
             #print(df[sing_cols])
@@ -422,7 +450,7 @@ def cat_cat(df,**kwargs):
             plt.xlabel(x_name)
             plt.xticks(rotation=90)
             #plt.ylabel(value)
-            plt.title('COUNTPLOT '+x_name+' for '+y_name+' : '+value)
+            plt.title('count:'+x_name+':for:'+y_name+':'+value)
             #plt.show()
     plt.subplot(srows,scols,len(ordery)+1)
     xfilter=df.loc[:,x_name]
