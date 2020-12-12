@@ -9,5 +9,6 @@ from .juvini import (
   cat_num,
   num_cat,
   cat_cat,
-  num_num
+  num_num,
+  juvini_against_target
 )
