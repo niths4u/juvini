@@ -7,7 +7,7 @@ with open("README.md", "r") as fh:
 	
 setuptools.setup(
     name="juvini", # Replace with your own username
-    version="1.0.7",
+    version="1.0.8",
     author="Niths",
     author_email="nitinmn@gmail.com",
     description="EDA for dummies",
