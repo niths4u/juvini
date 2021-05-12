@@ -119,7 +119,7 @@ def find_type(df,colname):
 ##target=the column against which we need to plot graph
 ##special_vals = if there is any specific variable in y_col against which we need the graph ,rest all will be taken as others , 
 ##for NULL values give it as'nan'
-def xy_auto_plot(df,**kwargs):
+def xy_auto_plot(df2,**kwargs):
     '''
     a utility function that will decide the graph based on the columns provided
     By default code will consider the first and the second column for X and Y.
@@ -145,6 +145,7 @@ def xy_auto_plot(df,**kwargs):
                  tight layout
     hue_col='hue_colname' , if you require an additional layer to add hue to the plot
     '''
+    df = df2.copy(deep=True)
     x_specialvalue=kwargs['x_specialvalue'] if 'x_specialvalue' in kwargs else None
     y_specialvalue=kwargs['y_specialvalue'] if 'y_specialvalue' in kwargs else None
 
@@ -201,7 +202,8 @@ def xy_auto_plot(df,**kwargs):
 # In[ ]:
 
 
-def single_cat(df,**kwargs):
+def single_cat(df2,**kwargs):
+    df = df2.copy(deep=True)
     xcap=kwargs['xcap'] if 'xcap' in kwargs else 20
     x_name = kwargs['x_name'] if 'x_name' in kwargs else df.columns[0]
     size_figure = kwargs['size_figure'] if 'size_figure' in kwargs else (13,4)
@@ -228,7 +230,8 @@ def single_cat(df,**kwargs):
 # In[ ]:
 
 
-def single_num(df,**kwargs):
+def single_num(df2,**kwargs):
+    df = df2.copy(deep=True)
     size_figure = kwargs['size_figure'] if 'size_figure' in kwargs else (13,4)
     x_name = kwargs['x_name'] if 'x_name' in kwargs else df.columns[0]
     hue_col = kwargs['hue_col'] if 'hue_col' in kwargs else None
@@ -302,7 +305,7 @@ def get_rows_cols(x,**kwargs):
 # In[ ]:
 
 
-def cat_num(df,**kwargs):
+def cat_num(df2,**kwargs):
     '''Docstring for plotting categorical vs numerical
     This method expects a dataframe as input with first column as categorical column and second column as numeric.
     Additionally you can provide a third categorical column that can act like a hue.
@@ -321,6 +324,7 @@ def cat_num(df,**kwargs):
                  tight layout
     hue_col='hue_colname' , if you require an additional layer to add hue to the plot
     '''
+    df = df2.copy(deep=True)
     xcap=kwargs['xcap'] if 'xcap' in kwargs else 5  
     others=kwargs['others'] if 'others' in kwargs else False
     x_name = kwargs['x_name'] if 'x_name' in kwargs else df.columns[0]
@@ -347,7 +351,7 @@ def cat_num(df,**kwargs):
     plt.show()
     return True
     
-def num_cat(df,**kwargs):
+def num_cat(df2,**kwargs):
     '''Docstring for plotting numerical vs categorical
     This method expects a dataframe as input with first column as numerical column and second column as categorical.
     Additionally you can provide a third categorical column that can act like a hue.
@@ -366,6 +370,7 @@ def num_cat(df,**kwargs):
                  tight layout
     hue_col='hue_colname' , if you require an additional layer to add hue to the plot
     '''
+    df = df2.copy(deep=True)
     xcap=kwargs['ycap'] if 'ycap' in kwargs else 5   ###important switching x and y
     others=kwargs['others'] if 'others' in kwargs else False 
     x_name = kwargs['y_name'] if 'y_name' in kwargs else df.columns[1] ###important switching x and y
@@ -395,7 +400,7 @@ def num_cat(df,**kwargs):
 # In[4]:
 
 
-def cat_cat(df,**kwargs):
+def cat_cat(df2,**kwargs):
     '''Docstring for plotting categorical vs categorical
     This method expects a dataframe as input with first column and second column as categorical column.
     Additionally you can provide a third categorical column that can act like a hue.
@@ -413,6 +418,7 @@ def cat_cat(df,**kwargs):
     hue_col='hue_colname' , if you require an additional layer to add hue to the plot
     scols=<number> : parameter to control how many graphs in a row , by default it is 3
     '''
+    df = df2.copy(deep=True)
     xcap=kwargs['xcap'] if 'xcap' in kwargs else 5
     ycap=kwargs['ycap'] if 'ycap' in kwargs else 5 
     others=kwargs['others'] if 'others' in kwargs else False
@@ -469,7 +475,7 @@ def cat_cat(df,**kwargs):
 # In[81]:
 
 
-def num_num(df,**kwargs):
+def num_num(df2,**kwargs):
     ####x is always df.iloc[0] , y is df.iloc[1]
     '''Docstring for plotting numerical vs numerical
     This method expects a dataframe as input with first column and second column as numerical column.
@@ -483,6 +489,7 @@ def num_num(df,**kwargs):
                  tight layout
     hue_col='hue_colname' , if you require an additional layer to add hue to the plot
     '''
+    df = df2.copy(deep=True)
     x_name = kwargs['x_name'] if 'x_name' in kwargs else df.columns[0]
     y_name = kwargs['y_name'] if 'y_name' in kwargs else df.columns[1]
     size_figure = kwargs['size_figure'] if 'size_figure' in kwargs else (13,4)
